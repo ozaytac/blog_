@@ -1,0 +1,58 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Ava from '@src/assets/img/ava.jpg';
+import Prose from '../components/Prose.astro';
+
+---
+
+<BaseLayout
+	title="About Me"
+	description="About me"
+>
+  <div class='container'>
+		<main class='prose text-lg dark:prose-invert'>
+      <article>
+        <div class='w-full md:flex md:items-center gap-16 mb-10'>
+          <div class="text-pretty leading-9">
+            <h1 class="text-4xl font-bold mb-4">Hi There 👋, About Me! </h1>
+            <Prose>
+              <div class="text-lg">
+                <p>As a physicist turned modeling and simulation engineer, I thrive at the intersection of theoretical science and practical engineering applications. My academic journey spans physics and an ongoing master’s degree in statistics, reflecting my commitment to understanding both the fundamental laws of nature and the mathematical frameworks that describe them.
+                  Currently, I work as a modeling and simulation engineer, where I leverage my diverse programming knowledge to create robust simulations and analyze complex systems. This role allows me to combine my physics background with computational methods to solve real-world engineering challenges.</p>
+              </div>
+            </Prose>
+          </div>
+          <Image src={Ava} alt="Mustafa Ozaytac" width={300}  class="rounded-3xl rotate-3 mx-4 md:mx-0"/>
+        </div>     
+        <div>
+          <p>As a physicist turned modeling and simulation engineer, I thrive at the intersection of theoretical science and practical engineering applications. My academic journey spans physics and an ongoing master's degree in statistics, reflecting my commitment to understanding both the fundamental laws of nature and the mathematical frameworks that describe them.</p>
+          <p>Currently, I work as a modeling and simulation engineer, where I leverage my diverse programming knowledge to create robust simulations and analyze complex systems. This role allows me to combine my physics background with computational methods to solve real-world engineering challenges.</p>
+          <h2>Technical Expertise</h2>
+          <ul>
+              <li>Deep understanding of physical systems and mathematical modeling, grounded in my physics education and engineering experience.</li>
+              <li>Advanced statistical analysis and data science skills, continuously enhanced through my graduate studies in statistics.</li>
+              <li>Proficiency in multiple programming languages, enabling me to choose the right tool for each specific challenge.</li>
+              <li>Experience in technical documentation and storytelling, making complex concepts accessible to diverse audiences.</li>
+          </ul>
+          <img src="https://i.ibb.co/sFDwss3/about.png" alt="About" style="display: block; margin: 10px auto; text-align: center;">
+          <h2>Professional Interests</h2>
+          <ul>
+              <li>Expanding my expertise in “Learning” and “Reasoning” concepts.</li>
+              <li>Developing innovative approaches to simulation and modeling challenges.</li>
+              <li>Creating comprehensive technical documentation that bridges the gap between complex systems and their users.</li>
+          </ul>
+          <h2>Academic Background</h2>
+          <ul>
+              <li>MSc - Statistics</li>
+              <li>BSc - Physics</li>
+          </ul>
+          <h2>Philosophy</h2>
+          <p>I believe in the power of interdisciplinary approaches, combining rigorous scientific methodology with modern data science techniques. My enthusiasm for discussing science, philosophy, ethics, and mathematics reflects my holistic approach to problem-solving and continuous learning.</p>
+          <p>When not working on technical projects, you'll likely find me engaged in deep discussions about scientific theories, exploring new statistical methods, or documenting insights to share with the broader technical community.</p>
+          <p>Or you can better write me an <a href="mailto:statnormaldev@gmail.com">email</a>.</p>
+        </article>
+      </article>
+    </main>
+  </div>
+</BaseLayout>

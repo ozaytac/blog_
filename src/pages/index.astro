@@ -1,0 +1,43 @@
+---
+import { SITE_TITLE, SITE_TAGLINE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import Prose from '../components/Prose.astro';
+import PostItem from '../components/PostItem.astro';
+
+type BlogPost = CollectionEntry<'blog'>;
+
+const posts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 5);
+---
+
+<BaseLayout title={SITE_TITLE + ' - ' + SITE_TAGLINE} description={SITE_DESCRIPTION}>
+	<div class='container'>
+		<div class='w-full md:flex md:items-center gap-16 mb-10'>
+      <div class="text-pretty leading-9">
+        <h1 class="text-4xl font-bold mb-4">Hello Stranger 👋!</h1>
+        <Prose>
+          <div class="text-lg">
+            <p> I serve as Senior Engineer on Modeling and Simulation team, bringing extensive experience in advanced modeling and simulation across the nuclear technology and aerospace sectors. In these roles, I apply cutting-edge techniques to address complex, data-driven challenges with practical engineering solutions. Alongside my professional work, I hold a Bachelor of Science in Mathematical Physics and am currently pursuing a master's degree in Statistics. My graduate studies emphasize the development of novel deep learning architectures to ensure statistical fidelity in synthetic data generation. This combined expertise in theoretical foundations and real-world applications positions me to bridge the gap between fundamental research and innovative engineering outcomes.</p>
+          </div>
+        </Prose>
+		<main>
+      <div class='mt-6 mb-12'>
+        <div class="flex justify-between gap-2 border-b mb-1 dark:border-b-zinc-700">
+          <h2 class="text-lg font-bold mb-3">Recent Posts</h2>
+          <a href="/posts/" class="inline-block py-2 underline dark:prose-invert">All posts &raquo;</a>
+        </div>
+        <div>
+          {
+            posts.map((post: BlogPost) => (
+              <PostItem post={post} />
+            ))
+          }      
+        </div>
+        <div class="text-right">
+        </div>
+      </div>
+		</main>
+	</div>
+</BaseLayout>
